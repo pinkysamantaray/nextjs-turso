@@ -56,4 +56,4 @@ Type `docker image rm <image name>` to remove any that you don't want sticking a
 ## 🔗 Additional Resources
 
 - How Next.js work? ¯\_(ツ)\_/¯
-  ![Next.js Components Flow](https://github.com/pinkysamantaray/remix-demo/blob/main/public/Next-js-component-flow.webp)
+  ![Next.js Components Flow](https://github.com/pinkysamantaray/nextjs-turso/blob/main/public/Next-js-component-flow.webp)
