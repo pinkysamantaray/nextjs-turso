@@ -1,0 +1,45 @@
+{
+  "name": "nextjs-turso",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_OPTIONS='--inspect' next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:push": "drizzle-kit push:sqlite --config ./drizzle.config.ts",
+    "db:studio": "drizzle-kit studio",
+    "db:seed": "tsx seed.ts"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.14.0",
+    "@scaleway/random-name": "^5.1.0",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.30.10",
+    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.460.0",
+    "next": "^15.1.6",
+    "nextjs-better-unstable-cache": "^1.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "server-only": "^0.0.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@heroui/react": "^2.6.14",
+    "@types/bcrypt": "^5.0.2",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "drizzle-kit": "^0.20.18",
+    "eslint": "^8",
+    "eslint-config-next": "15.0.3",
+    "framer-motion": "^12.4.1",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5"
+  }
+}
