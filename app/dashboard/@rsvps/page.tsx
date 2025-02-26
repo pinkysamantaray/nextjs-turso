@@ -23,7 +23,7 @@ const RsvpsSlot = async () => {
   return (
     <div className="w-full h-full p-4 flex justify-center">
       <div className="w-full">
-        <h2 className="text-center text-xl">{`RSVPs`}</h2>
+        <h2 className="text-center font-bold text-xl">{`RSVPs`}</h2>
         <div className="rounded-md border border-default-100 my-8">
           {data.map(({ rsvps, events, attendees }) => (
             <div

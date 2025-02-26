@@ -1,6 +1,6 @@
 'use client'
 import { useActionState } from 'react'
-import { Input } from '@heroui/input'
+import { Input, Alert } from '@heroui/react'
 import { registerUser } from '@/actions/auth'
 import Link from 'next/link'
 import Submit from './Submit'
@@ -16,9 +16,9 @@ const SignupForm = () => {
   return (
     <form
       action={action}
-      className="bg-content1 border border-default-100 shadow-lg rounded-md p-3 flex flex-col gap-2 "
+      className="bg-content1 border border-default-100 shadow-lg rounded-md p-6 flex flex-col gap-3"
     >
-      <h3 className="my-4">Sign up</h3>
+      <h3 className="my-4 text-sm">Sign up</h3>
       <Input fullWidth size="lg" placeholder="Email" name="email" required />
       <Input
         name="password"
@@ -28,11 +28,16 @@ const SignupForm = () => {
         placeholder="Password"
         required
       />
-      <Submit label={'Register'} />
-      <div className="my-2">
+      <Submit
+        className="bg-sky-500 hover:bg-sky-700 text-white font-bold text-lg hover:text-white border-purple-200 hover:border-transparent active:bg-sky-500"
+        label={'Register'}
+      />
+      <div className="my-2 text-sm font-bold">
         <Link href="/signin">{`Already have an account?`}</Link>
       </div>
-      {formState?.message && <p>{formState.message}</p>}
+      {formState?.message && (
+        <Alert color="danger" title={formState.message} variant="faded" />
+      )}
     </form>
   )
 }

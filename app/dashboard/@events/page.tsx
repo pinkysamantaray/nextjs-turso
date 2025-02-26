@@ -18,7 +18,7 @@ const EventsRsvp = async () => {
   return (
     <div className="w-full h-full p-4 flex justify-center">
       <div className="w-full">
-        <h2 className="text-center text-xl">{`Latest Events`}</h2>
+        <h2 className="text-center font-bold text-xl">{`Latest Events`}</h2>
         <div className="rounded-md border border-default-100 my-8">
           {events.map((event) => (
             <div
