@@ -8,14 +8,13 @@ import Submit from './Submit'
 const initState = { message: null }
 
 const SigninForm = () => {
-  const [formState, action] = useActionState<{ message: string | null }>(
-    signinUser,
-    initState
-  )
+  const [formState, formAction, isPending] = useActionState<{
+    message: string | null
+  }>(signinUser, initState)
 
   return (
     <form
-      action={action}
+      action={formAction}
       className="bg-content1 border border-default-100 shadow-lg rounded-md p-6 flex flex-col gap-3"
     >
       <h3 className="m-2 text-sm">Sign in</h3>
@@ -35,10 +34,7 @@ const SigninForm = () => {
         type="password"
         placeholder="Password"
       />
-      <Submit
-        className="bg-sky-500 hover:bg-sky-700 text-white font-bold text-lg hover:text-white border-purple-200 hover:border-transparent active:bg-sky-500"
-        label={'Login'}
-      />
+      <Submit label={isPending ? 'Loading...' : 'Login'} />
       <div className="my-2 text-sm font-bold">
         <Link href="/signup">{`Don't have an account?`}</Link>
       </div>

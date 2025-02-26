@@ -8,17 +8,16 @@ import Submit from './Submit'
 const initState = { message: null }
 
 const SignupForm = () => {
-  const [formState, action] = useActionState<{ message: string | null }>(
-    registerUser,
-    initState
-  )
+  const [formState, formAction, isPending] = useActionState<{
+    message: string | null
+  }>(registerUser, initState)
 
   return (
     <form
-      action={action}
+      action={formAction}
       className="bg-content1 border border-default-100 shadow-lg rounded-md p-6 flex flex-col gap-3"
     >
-      <h3 className="my-4 text-sm">Sign up</h3>
+      <h3 className="m-2 text-sm">Sign up</h3>
       <Input fullWidth size="lg" placeholder="Email" name="email" required />
       <Input
         name="password"
@@ -28,10 +27,7 @@ const SignupForm = () => {
         placeholder="Password"
         required
       />
-      <Submit
-        className="bg-sky-500 hover:bg-sky-700 text-white font-bold text-lg hover:text-white border-purple-200 hover:border-transparent active:bg-sky-500"
-        label={'Register'}
-      />
+      <Submit label={isPending ? 'Loading...' : 'Register'} />
       <div className="my-2 text-sm font-bold">
         <Link href="/signin">{`Already have an account?`}</Link>
       </div>
