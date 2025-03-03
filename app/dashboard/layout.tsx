@@ -8,17 +8,16 @@ const Dashboard = ({ children, rsvps, events }) => {
   return (
     <Shell>
       {path === '/dashboard' ? (
-        <div className="flex w-full h-full">
-          <div className="w-2/3 border-r border-default-50">{rsvps}</div>
-          <div className="w-1/3 h-[calc(100vh-65px)] flex flex-col border-l-4 border-stone-200">
-            <div className="border-b border-default-50 w-full h-1/2">
-              {events}
-            </div>
-            <div className="w-full h-1/2 grid">{children}</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid gap-5">
+            <div className="col">{children}</div>
+            <div className="col p-3 max-h-[300px]">{rsvps}</div>
           </div>
+
+          <div className="col">{events}</div>
         </div>
       ) : (
-        <div className="w-full h-full">{children}</div>
+        <div className="w-full h-full overflow-y-auto">{children}</div>
       )}
     </Shell>
   )

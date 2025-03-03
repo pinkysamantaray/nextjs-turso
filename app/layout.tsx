@@ -17,9 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} text-foreground bg-background h-screen w-screen`}
-      >
+      <body className={`${inter.className} text-foreground h-screen w-screen`}>
         <HeroUIProvider>{children}</HeroUIProvider>
       </body>
     </html>

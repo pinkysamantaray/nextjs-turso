@@ -21,6 +21,7 @@ export const users = sqliteTable('users', {
   createdAt: createdAt(),
   email: text('email').unique().notNull(),
   password: text('password').notNull(),
+  name: text('name').notNull(),
 })
 
 export const usersRelations = relations(users, ({ many }) => ({
@@ -36,12 +37,10 @@ export const events = sqliteTable(
     startOn: date('startOn').notNull(),
     createdById: text('createdById').notNull(),
     description: text('description'),
-
     streetNumber: integer('streetNumber'),
     street: text('street'),
     zip: integer('zip'),
     bldg: text('bldg'),
-
     isPrivate: boolean('isPrivate').default(false).notNull(),
     status: text('status', {
       enum: ['draft', 'live', 'started', 'ended', 'canceled'],

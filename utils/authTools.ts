@@ -24,6 +24,7 @@ export const getUserFromToken = async (token: {
       id: true,
       email: true,
       createdAt: true,
+      name: true,
     },
   })
 
@@ -58,14 +59,16 @@ export const signin = async ({
 export const signup = async ({
   email,
   password,
+  name,
 }: {
   email: string
   password: string
+  name: string
 }) => {
   const hashedPW = await hashPW(password)
   const rows = await db
     .insert(users)
-    .values({ email, password: hashedPW })
+    .values({ email, password: hashedPW, name: name })
     .returning({
       id: users.id,
       email: users.email,

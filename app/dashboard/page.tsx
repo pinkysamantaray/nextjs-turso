@@ -1,16 +1,20 @@
 import { getAttendeesCountForDashboard } from '@/utils/attendees'
+import { getUserFromToken } from '@/utils/authTools'
 import { getCurrentUser } from '@/utils/users'
 
 const Home = async () => {
-  const user = await getCurrentUser()
-  const count = await getAttendeesCountForDashboard(user.id)
+  const currentUser = await getCurrentUser()
+  const count = await getAttendeesCountForDashboard(currentUser.id)
   return (
-    <div id="attendees" className="place-self-center bg-stone-200">
-      <div>
-        <h4 className="text-lg">Attendees</h4>
-        <h2 className="text-6xl font-semibold my-4 text-center">{count}</h2>
+    <>
+      <h2 className="font-bold m-2">Hello {currentUser.name}! </h2>
+      <div id="attendees" className="place-self-center bg-stone-200">
+        <div>
+          <h4 className="text-lg">Attendees</h4>
+          <h2 className="text-6xl font-semibold my-4 text-center">{count}</h2>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

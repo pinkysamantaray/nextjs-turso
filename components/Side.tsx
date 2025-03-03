@@ -31,7 +31,7 @@ const Side = () => {
     <div className="w-full h-full px-3 relative">
       <div className="mb-12">
         <figure className="w-full p-4">
-          <Image className="bg" src={Logo} alt="pardy" />
+          <Image className="logo" src={Logo} alt="pardy" />
         </figure>
       </div>
       <div>

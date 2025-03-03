@@ -16,7 +16,7 @@ const Nav = () => {
   }
 
   return (
-    <nav className="h-[65px] bg-default-800 border-b border-default-50 flex items-center px-6 gap-4">
+    <nav className="h-[45px] bg-default-800 border-b border-default-50 flex items-center px-6 gap-4">
       <div>
         <Tooltip content="New Event">
           <Button

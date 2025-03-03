@@ -8,7 +8,6 @@ import { memoize } from 'nextjs-better-unstable-cache'
 export const getEventsForDashboard = memoize(
   async (userId: string) => {
     // await delay()
-
     const data = await db.query.events.findMany({
       where: eq(events.createdById, userId),
       columns: {

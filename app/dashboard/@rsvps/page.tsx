@@ -21,15 +21,12 @@ const RsvpsSlot = async () => {
   const data = await getRsvpsForDashboard(user.id)
 
   return (
-    <div className="w-full h-full p-4 flex justify-center">
+    <div className="w-full p-4 flex justify-center">
       <div className="w-full">
         <h2 className="text-center font-bold text-xl">{`RSVPs`}</h2>
-        <div className="rounded-md border border-default-100 my-8">
+        <div className="grid border my-8 max-h-[300px] overflow-y-scroll">
           {data.map(({ rsvps, events, attendees }) => (
-            <div
-              key={rsvps?.id}
-              className="border-b border-default-100 p-2 flex gap-2"
-            >
+            <div key={rsvps?.id} className="col p-3 flex gap-3">
               <span>{attendees.name}</span>
               <span>
                 <Chip

@@ -138,3 +138,7 @@ body {
   background-color: #f4f4f4;
   background-size: 16px 16px;
 }
+
+.logo {
+  filter: brightness(0.5);
+}

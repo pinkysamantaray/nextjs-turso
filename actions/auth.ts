@@ -12,9 +12,12 @@ const authSchema = z.object({
 })
 
 export const registerUser = async (prevState: any, formData: FormData) => {
+  await new Promise((resolve) => setTimeout(resolve, 2000))
+
   const data = authSchema.parse({
     email: formData.get('email'),
     password: formData.get('password'),
+    name: formData.get('name'),
   })
 
   try {
@@ -28,6 +31,8 @@ export const registerUser = async (prevState: any, formData: FormData) => {
 }
 
 export const signinUser = async (prevState: any, formData: FormData) => {
+  await new Promise((resolve) => setTimeout(resolve, 5000))
+
   const data = authSchema.parse({
     email: formData.get('email'),
     password: formData.get('password'),

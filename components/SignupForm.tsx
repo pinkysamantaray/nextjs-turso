@@ -18,6 +18,7 @@ const SignupForm = () => {
       className="bg-content1 border border-default-100 shadow-lg rounded-md p-6 flex flex-col gap-3"
     >
       <h3 className="m-2 text-sm">Sign up</h3>
+      <Input fullWidth size="lg" placeholder="Name" name="name" required />
       <Input fullWidth size="lg" placeholder="Email" name="email" required />
       <Input
         name="password"

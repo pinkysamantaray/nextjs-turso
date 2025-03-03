@@ -7,9 +7,8 @@ const Events = async () => {
   const user = await getCurrentUser()
   const events = await getAllEvents(user.id)
 
-  console.log(events)
   return (
-    <div className="p-4 grid grid-cols-1 gap-5">
+    <div className="grid gap-5 p-4 max-h-[500px]">
       {events.map((event: any) => (
         <Card
           key={event.id}
@@ -17,7 +16,7 @@ const Events = async () => {
           className="max-w-[240px] border-none"
           radius="lg"
         >
-          <CardBody className="bg-default-200 text-center overflow-visible gap-5 p-3">
+          <CardBody className="bg-default-200 text-center gap-5 p-3">
             <div className="flex gap-5">
               <Link href={`/dashboard/events/${event.id}`}>
                 <b>{event.name}</b>
