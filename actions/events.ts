@@ -15,7 +15,7 @@ export const createNewEvent = async () => {
     startOn: new Date().toUTCString(),
     createdById: user.id,
     isPrivate: false,
-    name: randomName('event', ' '),
+    name: randomName('Show', ' '),
   })
 
   revalidateTag('events')
