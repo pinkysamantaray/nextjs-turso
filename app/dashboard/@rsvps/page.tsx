@@ -1,6 +1,6 @@
 import { getRsvpsForDashboard } from '@/utils/rsvps'
 import { getCurrentUser } from '@/utils/users'
-import { Chip } from '@heroui/chip'
+import { Chip } from '@heroui/react'
 import Link from 'next/link'
 
 const statusColors: {

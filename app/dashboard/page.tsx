@@ -1,5 +1,4 @@
 import { getAttendeesCountForDashboard } from '@/utils/attendees'
-import { getUserFromToken } from '@/utils/authTools'
 import { getCurrentUser } from '@/utils/users'
 
 const Home = async () => {

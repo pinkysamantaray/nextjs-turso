@@ -1,4 +1,12 @@
+import { Spinner } from '@heroui/react'
+
 const GuestLoader = () => {
-  return '...loading'
+  return (
+    <Spinner
+      classNames={{ label: 'text-blue-600' }}
+      variant="wave"
+      label="Loading..."
+    />
+  )
 }
 export default GuestLoader

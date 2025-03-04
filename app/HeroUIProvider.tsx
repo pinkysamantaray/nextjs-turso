@@ -1,9 +1,14 @@
 'use client'
 
-import { HeroUIProvider } from '@heroui/react'
+import { HeroUIProvider, ToastProvider } from '@heroui/react'
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
-  return <HeroUIProvider>{children}</HeroUIProvider>
+  return (
+    <HeroUIProvider>
+      <ToastProvider placement="bottom-center" />
+      {children}
+    </HeroUIProvider>
+  )
 }
 
 export default Providers

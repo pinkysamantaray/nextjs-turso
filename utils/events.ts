@@ -8,6 +8,8 @@ import { memoize } from 'nextjs-better-unstable-cache'
 export const getEventsForDashboard = memoize(
   async (userId: string) => {
     // await delay()
+    // throw new Error('System is down for maintenance')
+
     const data = await db.query.events.findMany({
       where: eq(events.createdById, userId),
       columns: {
@@ -36,7 +38,7 @@ export const getEventsForDashboard = memoize(
 
 export const getAllEvents = memoize(
   async (userId: string) => {
-    // await delay()
+    await delay()
     return db.query.events.findMany({
       where: eq(events.createdById, userId),
       orderBy: [asc(events.startOn)],
