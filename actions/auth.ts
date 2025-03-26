@@ -33,7 +33,7 @@ export const registerUser = async (prevState: any, formData: FormData) => {
 }
 
 export const signinUser = async (prevState: any, formData: FormData) => {
-  await new Promise((resolve) => setTimeout(resolve, 3000))
+  // await new Promise((resolve) => setTimeout(resolve, 3000))
 
   const data = authSchema.parse({
     email: formData.get('email'),
