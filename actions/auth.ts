@@ -9,6 +9,7 @@ import { COOKIE_NAME } from '@/utils/constants'
 const authSchema = z.object({
   email: z.string().email(),
   password: z.string(),
+  name: z.string(),
 })
 
 export const registerUser = async (prevState: any, formData: FormData) => {
@@ -17,12 +18,13 @@ export const registerUser = async (prevState: any, formData: FormData) => {
   const data = authSchema.parse({
     email: formData.get('email'),
     password: formData.get('password'),
-    name: formData.get('name'),
+    name: formData.get('name') as string,
   })
 
   try {
     const { token } = await signup(data)
-    await cookies().set(COOKIE_NAME, token)
+    const cookieStore = await cookies()
+    cookieStore.set(COOKIE_NAME, token)
   } catch (e) {
     console.error(e)
     return { message: 'Failed to sign you up' }
@@ -36,11 +38,13 @@ export const signinUser = async (prevState: any, formData: FormData) => {
   const data = authSchema.parse({
     email: formData.get('email'),
     password: formData.get('password'),
+    name: '',
   })
 
   try {
     const { token } = await signin(data)
-    await cookies().set(COOKIE_NAME, token)
+    const cookieStore = await cookies()
+    cookieStore.set(COOKIE_NAME, token)
   } catch (e) {
     console.error(e)
     return { message: 'Failed to sign you in' }

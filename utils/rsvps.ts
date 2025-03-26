@@ -1,9 +1,9 @@
 import 'server-only'
 import { db } from '@/db/db'
-import { and, desc, eq, inArray } from 'drizzle-orm'
+import { desc, eq, inArray } from 'drizzle-orm'
 import { rsvps, events, attendees } from '@/db/schema'
 import { delay } from './delay'
-import { memoize } from 'nextjs-better-unstable-cache'
+import memoize from 'memoize'
 
 export const getRsvpsForDashboard = memoize(
   async (userId: string) => {

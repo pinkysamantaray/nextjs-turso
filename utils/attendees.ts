@@ -1,9 +1,9 @@
 import 'server-only'
 import { db } from '@/db/db'
 import { attendees, events, rsvps } from '@/db/schema'
-import { memoize } from 'nextjs-better-unstable-cache'
+import memoize from 'memoize'
 import { eq, sql } from 'drizzle-orm'
-import { delay } from './delay'
+// import { delay } from './delay'
 
 export const getAttendeesCountForDashboard = memoize(
   async (userId: string) => {
