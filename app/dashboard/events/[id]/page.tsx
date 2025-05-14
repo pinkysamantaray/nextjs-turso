@@ -1,11 +1,28 @@
+import React from 'react'
 import { getOneEvent } from '@/utils/events'
 import { getCurrentUser } from '@/utils/users'
 import { redirect } from 'next/navigation'
 
-const EventPage = async (props) => {
+interface EventPageParams {
+  params: Promise<{ id: string }>
+}
+
+interface User {
+  id: string
+  // add other user properties if needed
+}
+
+interface Event {
+  name: string
+  // add other event properties if needed
+}
+
+const EventPage = async (
+  props: EventPageParams
+): Promise<React.ReactElement> => {
   const params = await props.params
-  const user = await getCurrentUser()
-  const event = await getOneEvent(user.id, params.id)
+  const user: User = await getCurrentUser()
+  const event: Event | null | undefined = await getOneEvent(user.id, params.id)
 
   if (!event) redirect('/dashboard/events')
 

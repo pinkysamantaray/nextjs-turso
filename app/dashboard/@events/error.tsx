@@ -1,5 +1,10 @@
 'use client'
-const EventsError = ({ error, reset }) => {
+interface EventsErrorProps {
+  error: { message?: string }
+  reset: () => void
+}
+
+const EventsError = ({ error, reset }: EventsErrorProps) => {
   return (
     <div className="text-danger-500">
       Something went wrong, Please try again later :(

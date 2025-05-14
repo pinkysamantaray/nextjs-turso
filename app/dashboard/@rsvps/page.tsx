@@ -33,7 +33,7 @@ const RsvpsSlot = async () => {
                   size="sm"
                   variant="flat"
                   color={
-                    statusColors[rsvps.status]
+                    rsvps && statusColors[rsvps.status]
                       ? statusColors[rsvps.status]
                       : 'primary'
                   }

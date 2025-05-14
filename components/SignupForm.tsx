@@ -8,9 +8,10 @@ import Submit from './Submit'
 const initState = { message: null }
 
 const SignupForm = () => {
-  const [formState, formAction, isPending] = useActionState<{
-    message: string | null
-  }>(registerUser, initState)
+  const [formState, formAction, isPending] = useActionState<
+    { message: string | null },
+    FormData
+  >(registerUser, initState)
 
   return (
     <form

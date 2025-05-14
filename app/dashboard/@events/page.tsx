@@ -3,12 +3,12 @@ import { getCurrentUser } from '@/utils/users'
 import { Chip } from '@heroui/chip'
 import Link from 'next/link'
 
-const statusColors = {
-  draft: 'warning',
-  live: 'success',
-  started: 'primary',
-  ended: 'default',
-  canceled: 'danger',
+enum StatusColors {
+  draft = 'warning',
+  live = 'success',
+  started = 'primary',
+  ended = 'default',
+  canceled = 'danger',
 }
 
 const EventsRsvp = async () => {
@@ -29,7 +29,10 @@ const EventsRsvp = async () => {
                 <span>{event.name}</span>
               </Link>
               <span>
-                <Chip size="sm" color={statusColors[event.status]}>
+                <Chip
+                  size="sm"
+                  color={StatusColors[event.status] || StatusColors.ended}
+                >
                   {event.status}
                 </Chip>
               </span>
